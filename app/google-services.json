@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "421470380191",
+    "firebase_url": "https://study-platform-b94c4.firebaseio.com",
+    "project_id": "study-platform-b94c4",
+    "storage_bucket": "study-platform-b94c4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:421470380191:android:0da0cdafaf4ef90d",
+        "android_client_info": {
+          "package_name": "com.example.jonas.studyplatform"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "421470380191-ffjn7j0d1v3fdb556ak4eiergll1ivel.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAupN9Yaw1SzBxHtguCQcuyaCu7KwCLcQk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
