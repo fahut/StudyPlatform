@@ -10,11 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Settings"
@@ -22,14 +18,24 @@
         <activity
             android:name=".Search"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".LoginActivity"></activity>
+
+        <activity android:name=".LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".MyPageActivity"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MessageActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".SignupActivity"></activity>
+        <activity android:name=".SignupActivity">
+
+        </activity>
     </application>
 
 </manifest>

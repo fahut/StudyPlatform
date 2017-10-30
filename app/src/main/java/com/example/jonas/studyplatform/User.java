@@ -5,20 +5,12 @@ package com.example.jonas.studyplatform;
  */
 
 public class User {
-    int id;
     String username;
     String email;
     String name;
     String password;
 
-    public void setId(int id)
-    {
-        this.id = id;
-    }
-    public int getId()
-    {
-        return this.id;
-    }
+
     public void setName(String name)
     {
         this.name = name;
