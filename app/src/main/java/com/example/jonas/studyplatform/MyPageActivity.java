@@ -1,21 +1,106 @@
 package com.example.jonas.studyplatform;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
-import static android.os.Build.VERSION_CODES.M;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MyPageActivity extends AppCompatActivity {
 
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        switch (item.getItemId())
-        {
+    Button updateButton;
+    private FirebaseAuth mAuth;
+    DatabaseReference myRef;
+    DatabaseReference userRef;
+    ValueEventListener ev;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_my_page);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
+
+        myRef = FirebaseDatabase.getInstance().getReference().child("users");
+
+        mAuth = FirebaseAuth.getInstance();
+
+        updateButton = (Button) findViewById(R.id.updateButton);
+        updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(MyPageActivity.this, ChangeMyPageActivity.class);
+                startActivity(i);
+            }
+
+        });
+
+        userRef = myRef.child(mAuth.getCurrentUser().getUid());
+
+        ev = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                User currentUser = dataSnapshot.getValue(User.class);
+                TextView tv1 = (TextView) findViewById(R.id.displayNameTextView);
+                TextView tv2 = (TextView) findViewById(R.id.displayEmailTextView);
+                TextView tv3 = (TextView) findViewById(R.id.displayEducationTextView);
+                TextView tv4 = (TextView) findViewById(R.id.displayUsernameTextView);
+                TextView tv5 = (TextView) findViewById(R.id.displayStrong1TextView);
+                TextView tv6 = (TextView) findViewById(R.id.displayStrong2TextView);
+                TextView tv7 = (TextView) findViewById(R.id.displayWeak1TextView);
+                TextView tv8 = (TextView) findViewById(R.id.displayWeak2TextView);
+
+                tv1.setText("Name: " + currentUser.getName());
+                tv2.setText("Email: " + currentUser.getEmail());
+                tv3.setText("Education: " + currentUser.getEducation());
+                tv4.setText("Username: " + currentUser.getUsername());
+                tv5.setText("Strong Course: " + currentUser.getStrong1());
+                tv6.setText("Strong Course: " + currentUser.getStrong2());
+                tv7.setText("Weak Course: " + currentUser.getWeak1());
+                tv8.setText("Weak Course: " + currentUser.getWeak2());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
+
+        userRef.addValueEventListener(ev);
+
+    }
+
+/*    @Override
+    public void onStop(){
+        super.onStop();
+        userRef.removeEventListener(ev);
+    }*/
+
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
             case R.id.settings:
                 Intent intent = new Intent(MyPageActivity.this, Settings.class);
                 startActivity(intent);
@@ -36,27 +121,23 @@ public class MyPageActivity extends AppCompatActivity {
                 startActivity(intent3);
                 return true;
 
+            case R.id.signoff:
+                Intent intent4 = new Intent(MyPageActivity.this, SignOffActivity.class);
+                startActivity(intent4);
+                return true;
+
+            case R.id.about:
+                Intent intent6 = new Intent(MyPageActivity.this, AboutActivity.class);
+                startActivity(intent6);
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
 
-    };
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_page);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        ActionBar ab = getSupportActionBar();
-        ab.setDisplayHomeAsUpEnabled(true);
     }
 
+    ;
 
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        getMenuInflater().inflate(R.menu.main_menu,menu);
-        return super.onCreateOptionsMenu(menu);
-    }
+
 }

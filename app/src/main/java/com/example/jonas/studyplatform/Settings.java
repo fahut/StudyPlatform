@@ -2,23 +2,15 @@ package com.example.jonas.studyplatform;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceFragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class Settings extends AppCompatActivity {
 
-
-    Button mSendButton;
-    EditText mMessageEditText;
 
 
     public boolean onOptionsItemSelected(MenuItem item)
@@ -45,6 +37,16 @@ public class Settings extends AppCompatActivity {
                 startActivity(intent3);
                 return true;
 
+            case R.id.signoff:
+                Intent intent4 = new Intent(Settings.this, SignOffActivity.class);
+                startActivity(intent4);
+                return true;
+
+            case R.id.about:
+                Intent intent6 = new Intent(Settings.this, AboutActivity.class);
+                startActivity(intent6);
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -62,28 +64,28 @@ public class Settings extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
 
-        mMessageEditText = (EditText) findViewById(R.id.mMessageEditText);
-        mSendButton = (Button) findViewById(R.id.mMessagebutton);
-
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference myRef = database.getReference("Messages");
-
-
-        mSendButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String friendlyMessage = mMessageEditText.getText().toString();
-                myRef.push().setValue(friendlyMessage);
-                mMessageEditText.setText("");
-            }
-        });
+        getFragmentManager().beginTransaction().replace(android.R.id.content,
+                new SettingsFragment()).commit();
     }
 
+    /**
+     * Fragment for settings.
+     */
+    public static class SettingsFragment extends PreferenceFragment {
 
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.preferences);
+        }
+    }
     public boolean onCreateOptionsMenu(Menu menu)
     {
         getMenuInflater().inflate(R.menu.main_menu,menu);
         return super.onCreateOptionsMenu(menu);
     }
+
 }
+
+
+

@@ -1,4 +1,37 @@
 <resources>
     <string name="app_name">Study Platform</string>
     <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="login">Log in</string>
+    <string name="username">Username</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="name">Name</string>
+    <string name="Confirm_pass">Confirm Password</string>
+    <string name="strong1">Enter Strong Course</string>
+    <string name="age">Age</string>
+    <string name="gender">Gender</string>
+    <string name="weak1">Enter Weak Course</string>
+    <string name="settings">Settings</string>
+    <string name="edit_information">Update Your Information</string>
+    <string name="edit_info">Edit Info</string>
+    <string name="signout">Sign Out</string>
+    <string name="mypage">My Page</string>
+    <string name="chat">Chat</string>
+    <string name="about">About Us</string>
+    <string name="about_us">Hello and welcome to SocialEd. SocialEd is a StudyPlatform designed to assist users in the finding study partners. For you to be part of the partner search program please update you information in the My Page site. When you hvae done this, other student can find you in our search. If you want to find a study partner, then go to the search site and search for a course you need help in.</string>
+    <string name="enjoy">Enjoy our App</string>
+    <string name="best">Best Regards</string>
+    <string name="kasper">Kasper and Jonas</string>
+    <string name="pass">Password</string>
+    <string name="success_create">You successfully created a user, please login</string>
+    <string name="color_prefs">Color Preferences</string>
+    <string name="color_pref">Color Preference</string>
+    <string name="color_sum">If you want your app pink, then check this box</string>
+    <string name="email">E-Mail</string>
+    <string name="teach">Enter course to teach</string>
+    <string name="education">Enter your Education</string>
+    <string name="learn">Enter course to learn</string>
+    <string name="welcome">Welcome</string>
+    <string name="failed_login">Failed to Login, try again or create a user</string>
+    <string name="failed_tosignup">Failed to create a user, please use a real email and a six diggit password</string>
 </resources>

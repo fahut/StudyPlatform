@@ -133,6 +133,16 @@ public class MessageActivity extends AppCompatActivity {
                 startActivity(intent3);
                 return true;
 
+            case R.id.signoff:
+                Intent intent4 = new Intent(MessageActivity.this, SignOffActivity.class);
+                startActivity(intent4);
+                return true;
+
+            case R.id.about:
+                Intent intent6 = new Intent(MessageActivity.this, AboutActivity.class);
+                startActivity(intent6);
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }

@@ -5,19 +5,26 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="S4S"
+        android:label="SocialEd"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <uses-permission android:name="android.permission.INTERNET" />
         <activity android:name=".MainActivity">
 
         </activity>
         <activity
             android:name=".Settings"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity">
+
+    </activity>
         <activity
             android:name=".Search"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity">
+
+
+            </activity>
+
 
         <activity android:name=".LoginActivity">
             <intent-filter>
@@ -26,16 +33,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MyPageActivity"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MessageActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".SignupActivity">
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".SignOffActivity" />
+        <activity
+            android:name=".ChangeMyPageActivity"
+            android:parentActivityName=".MainActivity">
 
         </activity>
+        <activity android:name=".AboutActivity"></activity>
     </application>
 
 </manifest>

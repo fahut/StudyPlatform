@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Study Platform</string>
+    <string name="Confirm_pass">Bekræft Password</string>
+    <string name="home">Hjem</string>
+    <string name="login">Log ind</string>
+    <string name="name">Navn</string>
+    <string name="search">Søg</string>
+    <string name="sign_up">Opret Bruger</string>
+    <string name="strong1">Skriv stærkt fag</string>
+    <string name="username">Brugernavn</string>
+    <string name="settings">Indstillinger</string>
+    <string name="signout">Log ud</string>
+    <string name="chat">Chat</string>
+    <string name="mypage">Min side</string>
+    <string name="age">Alder</string>
+    <string name="edit_info">Rediger Info</string>
+    <string name="edit_information">Opdater din information</string>
+    <string name="gender">Køn</string>
+    <string name="weak1">Skriv fag du vil lære</string>
+    <string name="about">Om os</string>
+    <string name="about_us">Hej og velkomment til SocialEd. SocialEd er en studie paltform, der er designet til at hjælpe vores brugere med at finde studie partnere. For at du kan være en del af vores søge funktion bedes du opdatere din information under Min Side. Når du har gjort dette, så kan andre studerende finde dig i søgningen. Hvis du vil finde en studie partner kan du gå til søge funktionen, og søge på det fag du har brug for hjælp til.</string>
+    <string name="best">Med Venlig Hilsen</string>
+    <string name="kasper">Kasper og Jonas</string>
+    <string name="enjoy">God Fornøjelse</string>
+    <string name="color_pref">Farve præference</string>
+    <string name="color_prefs">Farve præferencer</string>
+    <string name="color_sum">Hvis du vil have din app pink, så tjek boksen</string>
+    <string name="email">E-Mail</string>
+    <string name="failed_login">Fejl under Login, prøv igen eller opret en bruger</string>
+    <string name="failed_tosignup">Fejl under oprettelse, prøv med en rigtig email og et 6 tegns password</string>
+    <string name="pass">Password</string>
+    <string name="success_create">Du har nu oprettet en bruger, prøv at logge ind</string>
+    <string name="welcome">Velkommen</string>
+    <string name="education">Skriv din uddannelse</string>
+    <string name="learn">Hvilket fag vil du lære?</string>
+    <string name="teach">Hvilket fag vil du undervise?</string>
+</resources>
