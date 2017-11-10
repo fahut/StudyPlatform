@@ -15,6 +15,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -24,6 +26,7 @@ public class SignupActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    DatabaseReference userRef;
 
     private static final String TAG = "EmailPassword";
 
@@ -109,6 +112,21 @@ public class SignupActivity extends AppCompatActivity {
                         if (!task.isSuccessful()) {
                             Toast.makeText(SignupActivity.this, R.string.failed_tosignup,
                                     Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            userRef = FirebaseDatabase.getInstance().getReference("users").child(mAuth.getCurrentUser().getUid());
+                            userRef.child("education").setValue("");
+                            userRef.child("email").setValue("");
+                            userRef.child("name").setValue("");
+                            userRef.child("strong1").setValue("");
+                            userRef.child("strong2").setValue("");
+                            userRef.child("username").setValue("");
+                            userRef.child("weak1").setValue("");
+                            userRef.child("weak2").setValue("");
+
+
+
                         }
 
 

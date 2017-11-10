@@ -30,7 +30,7 @@
     <string name="failed_login">Fejl under Login, prøv igen eller opret en bruger</string>
     <string name="failed_tosignup">Fejl under oprettelse, prøv med en rigtig email og et 6 tegns password</string>
     <string name="pass">Password</string>
-    <string name="success_create">Du har nu oprettet en bruger, prøv at logge ind</string>
+    <string name="success_create">Du har nu oprettet en bruger, og bliver nu logget ind.</string>
     <string name="welcome">Velkommen</string>
     <string name="education">Skriv din uddannelse</string>
     <string name="learn">Hvilket fag vil du lære?</string>

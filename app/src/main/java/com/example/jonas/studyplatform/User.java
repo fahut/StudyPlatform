@@ -103,4 +103,9 @@ public class User {
     }
 
 
+    @Override
+    public String toString()
+    {
+        return name + ", " + email + ": Can teach: " + strong1 + ", " + strong2;
+    }
 }

@@ -57,7 +57,10 @@ public class MyPageActivity extends AppCompatActivity {
         ev = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                
                 User currentUser = dataSnapshot.getValue(User.class);
+
+
                 TextView tv1 = (TextView) findViewById(R.id.displayNameTextView);
                 TextView tv2 = (TextView) findViewById(R.id.displayEmailTextView);
                 TextView tv3 = (TextView) findViewById(R.id.displayEducationTextView);
@@ -87,11 +90,6 @@ public class MyPageActivity extends AppCompatActivity {
 
     }
 
-/*    @Override
-    public void onStop(){
-        super.onStop();
-        userRef.removeEventListener(ev);
-    }*/
 
 
     public boolean onCreateOptionsMenu(Menu menu) {

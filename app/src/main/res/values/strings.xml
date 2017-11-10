@@ -23,7 +23,7 @@
     <string name="best">Best Regards</string>
     <string name="kasper">Kasper and Jonas</string>
     <string name="pass">Password</string>
-    <string name="success_create">You successfully created a user, please login</string>
+    <string name="success_create">You user was created. You are now logged in</string>
     <string name="color_prefs">Color Preferences</string>
     <string name="color_pref">Color Preference</string>
     <string name="color_sum">If you want your app pink, then check this box</string>

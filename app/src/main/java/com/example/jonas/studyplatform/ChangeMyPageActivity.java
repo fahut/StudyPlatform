@@ -65,7 +65,6 @@ public class ChangeMyPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                //Gem til firebase her også
 
 
 
@@ -73,8 +72,8 @@ public class ChangeMyPageActivity extends AppCompatActivity {
                 String ce = changeEmail.getText().toString();
                 String ced = changeEducation.getText().toString();
                 String cu = changeUsername.getText().toString();
-                String cs1 = changeStrong1.getText().toString();
-                String cs2 = changeStrong2.getText().toString();
+                String cs1 = changeStrong1.getText().toString().toLowerCase();
+                String cs2 = changeStrong2.getText().toString().toLowerCase();
                 String cw1 = changeWeak1.getText().toString();
                 String cw2 = changeWeak2.getText().toString();
 
@@ -95,14 +94,15 @@ public class ChangeMyPageActivity extends AppCompatActivity {
                 User currentUser = dataSnapshot.getValue(User.class);
 
 
-                changeName.setText(currentUser.getName());
-                changeEmail.setText(currentUser.getEmail());
-                changeEducation.setText(currentUser.getEducation());
-                changeUsername.setText(currentUser.getUsername());
-                changeStrong1.setText(currentUser.getStrong1());
-                changeStrong2.setText(currentUser.getStrong2());
-                changeWeak1.setText(currentUser.getWeak1());
-                changeWeak2.setText(currentUser.getWeak2());
+                    changeName.setText(currentUser.getName());
+                    changeEmail.setText(currentUser.getEmail());
+                    changeEducation.setText(currentUser.getEducation());
+                    changeUsername.setText(currentUser.getUsername());
+                    changeStrong1.setText(currentUser.getStrong1());
+                    changeStrong2.setText(currentUser.getStrong2());
+                    changeWeak1.setText(currentUser.getWeak1());
+                    changeWeak2.setText(currentUser.getWeak2());
+
             }
 
             @Override
