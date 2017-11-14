@@ -10,7 +10,6 @@ import com.google.firebase.database.IgnoreExtraProperties;
 @IgnoreExtraProperties
 public class User {
     String username;
-    String email;
     String name;
     String education;
     String strong1;
@@ -25,9 +24,8 @@ public class User {
 
     }
 
-    public User(String username, String email, String name, String education, String strong1, String strong2, String weak1, String weak2) {
+    public User(String username, String name, String education, String strong1, String strong2, String weak1, String weak2) {
         this.username = username;
-        this.email = email;
         this.name = name;
         this.education = education;
         this.strong1 = strong1;
@@ -52,14 +50,6 @@ public class User {
     public String getUsername()
     {
         return this.username;
-    }
-    public void setEmail(String email)
-    {
-        this.email = email;
-    }
-    public String getEmail()
-    {
-        return this.email;
     }
     public void setEducation(String education)
     {
@@ -106,6 +96,6 @@ public class User {
     @Override
     public String toString()
     {
-        return name + ", " + email + ": Can teach: " + strong1 + ", " + strong2;
+        return name + ", "  + ": Can teach: " + strong1 + ", " + strong2;
     }
 }

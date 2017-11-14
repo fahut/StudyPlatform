@@ -27,7 +27,6 @@ public class ChangeMyPageActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     EditText changeName;
-    EditText changeEmail;
     EditText changeEducation;
     EditText changeUsername;
     EditText changeStrong1;
@@ -44,7 +43,6 @@ public class ChangeMyPageActivity extends AppCompatActivity {
         myRef = FirebaseDatabase.getInstance().getReference();
 
         changeName = (EditText) findViewById(R.id.changeNameEditText);
-        changeEmail = (EditText) findViewById(R.id.changeEmailEditText);
         changeEducation = (EditText) findViewById(R.id.changeEducationEditText);
         changeUsername = (EditText) findViewById(R.id.changeUsernameEditText);
         changeStrong1 = (EditText) findViewById(R.id.changeStrong1EditText);
@@ -69,7 +67,6 @@ public class ChangeMyPageActivity extends AppCompatActivity {
 
 
                 String cn = changeName.getText().toString();
-                String ce = changeEmail.getText().toString();
                 String ced = changeEducation.getText().toString();
                 String cu = changeUsername.getText().toString();
                 String cs1 = changeStrong1.getText().toString().toLowerCase();
@@ -77,7 +74,7 @@ public class ChangeMyPageActivity extends AppCompatActivity {
                 String cw1 = changeWeak1.getText().toString();
                 String cw2 = changeWeak2.getText().toString();
 
-                User user = new User(cu, ce, cn, ced, cs1, cs2, cw1, cw2);
+                User user = new User(cu, cn, ced, cs1, cs2, cw1, cw2);
                 updateCurrentUser(user);
 
                 Intent i = new Intent(ChangeMyPageActivity.this, MyPageActivity.class);
@@ -95,7 +92,6 @@ public class ChangeMyPageActivity extends AppCompatActivity {
 
 
                     changeName.setText(currentUser.getName());
-                    changeEmail.setText(currentUser.getEmail());
                     changeEducation.setText(currentUser.getEducation());
                     changeUsername.setText(currentUser.getUsername());
                     changeStrong1.setText(currentUser.getStrong1());
@@ -115,14 +111,13 @@ public class ChangeMyPageActivity extends AppCompatActivity {
     private void updateCurrentUser(User newUser) {
         String username = newUser.getUsername();
         String education = newUser.getEducation();
-        String email = newUser.getEmail();
         String name = newUser.getName();
         String strong1 = newUser.getStrong1();
         String strong2 = newUser.getStrong2();
         String weak1 = newUser.getWeak1();
         String weak2 = newUser.getWeak2();
 
-        User user = new User(username, email, name, education, strong1, strong2, weak1, weak2);
+        User user = new User(username, name, education, strong1, strong2, weak1, weak2);
 
         if(mAuth == null) return;
         myRef.child("users").child(mAuth.getCurrentUser().getUid()).setValue(user);

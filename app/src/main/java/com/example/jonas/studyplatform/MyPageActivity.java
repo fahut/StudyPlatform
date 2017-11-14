@@ -63,7 +63,6 @@ public class MyPageActivity extends AppCompatActivity {
 
 
                 TextView tv1 = (TextView) findViewById(R.id.displayNameTextView);
-                TextView tv2 = (TextView) findViewById(R.id.displayEmailTextView);
                 TextView tv3 = (TextView) findViewById(R.id.displayEducationTextView);
                 TextView tv4 = (TextView) findViewById(R.id.displayUsernameTextView);
                 TextView tv5 = (TextView) findViewById(R.id.displayStrong1TextView);
@@ -72,7 +71,6 @@ public class MyPageActivity extends AppCompatActivity {
                 TextView tv8 = (TextView) findViewById(R.id.displayWeak2TextView);
 
                 tv1.setText("Name: " + currentUser.getName());
-                tv2.setText("Email: " + currentUser.getEmail());
                 tv3.setText("Education: " + currentUser.getEducation());
                 tv4.setText("Username: " + currentUser.getUsername());
                 tv5.setText("Strong Course: " + currentUser.getStrong1());

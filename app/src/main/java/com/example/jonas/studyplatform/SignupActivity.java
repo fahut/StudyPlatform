@@ -139,7 +139,6 @@ public class SignupActivity extends AppCompatActivity {
                         {
                             userRef = FirebaseDatabase.getInstance().getReference("users").child(mAuth.getCurrentUser().getUid());
                             userRef.child("education").setValue("");
-                            userRef.child("email").setValue("");
                             userRef.child("name").setValue("");
                             userRef.child("strong1").setValue("");
                             userRef.child("strong2").setValue("");
