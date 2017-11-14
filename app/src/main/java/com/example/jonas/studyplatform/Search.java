@@ -126,10 +126,10 @@ public class Search extends AppCompatActivity {
 
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                User data2 = (User) dataSnapshot.getValue(User.class);
+                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                    User data2 = (User) dataSnapshot.getValue(User.class);
 
-                userList.add(data2);
+                    userList.add(data2);
             }
 
             @Override

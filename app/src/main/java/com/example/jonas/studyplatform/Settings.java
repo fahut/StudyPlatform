@@ -1,13 +1,21 @@
 package com.example.jonas.studyplatform;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
+import static com.example.jonas.studyplatform.R.id.enjoyTextView;
 
 public class Settings extends AppCompatActivity {
 
@@ -58,14 +66,21 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        TextView textView = (TextView)findViewById(R.id.enjoyTextView);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
 
-        getFragmentManager().beginTransaction().replace(android.R.id.content,
+        getFragmentManager().beginTransaction().replace(R.id.frameContainer,
                 new SettingsFragment()).commit();
+
+
+
+
+
     }
 
     /**
@@ -84,6 +99,10 @@ public class Settings extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main_menu,menu);
         return super.onCreateOptionsMenu(menu);
     }
+
+
+
+
 
 }
 

@@ -81,7 +81,7 @@ public class SignupActivity extends AppCompatActivity {
                 {
 
                     Toast.makeText(SignupActivity.this, R.string.password_not,
-                        Toast.LENGTH_SHORT).show();
+                            Toast.LENGTH_SHORT).show();
 
                     passwordText.setText("");
                     confirmPasswordText.setText("");

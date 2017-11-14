@@ -1,18 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <include layout="@layout/toolbar" />
 
-    <PreferenceCategory android:title="@string/color_prefs">
 
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="check_box_preference_1"
-            android:title="@string/color_pref"
-            android:summary="@string/color_sum"/>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
 
-    </PreferenceCategory>
 
+
+    >
+
+
+
+
+
+
+
+
+    <ListPreference
+        android:defaultValue="#2bff00"
+        android:entries="@array/color_name"
+        android:entryValues="@array/color_values"
+        android:key="@string/key_color"
+        android:shouldDisableView="false"
+        android:summary="Choose a background color"
+        android:title="Background Color" />
 
 
 </PreferenceScreen>

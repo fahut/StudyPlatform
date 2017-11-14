@@ -51,7 +51,8 @@ public class MyPageActivity extends AppCompatActivity {
             }
 
         });
-
+                // For at få adgang til databasen. EditUser er sendt til databasen, og mypage henter denne data.
+                //Realtime database, datasnapshot, kigger på data hele tiden.
         userRef = myRef.child(mAuth.getCurrentUser().getUid());
 
         ev = new ValueEventListener() {

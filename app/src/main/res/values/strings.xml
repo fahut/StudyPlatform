@@ -1,3 +1,4 @@
+
 <resources>
     <string name="app_name">Study Platform</string>
     <string name="home">Home</string>
@@ -37,4 +38,13 @@
     <string name="failed_towrite">Please input your email and password</string>
     <string name="password_not">The passwords do not match</string>
     <string name="empty_fields">One or more of the fields are empty</string>
+    <string name="key_color">backgroundColor</string>
+
+    <string name="Blue">Blue</string>
+    <string name="Red">Red</string>
+    <string name="Green">Green</string>
+    <string name="Pink">Pink</string>
+
+
+
 </resources>

@@ -1,20 +1,38 @@
 package com.example.jonas.studyplatform;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.PreferenceManager;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Layout;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
+import static android.os.Build.VERSION_CODES.M;
+
+import static com.example.jonas.studyplatform.R.id.layoutHome;
+import static com.example.jonas.studyplatform.R.id.nameTextView;
+import static com.example.jonas.studyplatform.R.xml.preferences;
+import static java.lang.Integer.parseInt;
+
 public class MainActivity extends AppCompatActivity {
 
+    RelativeLayout layoutHome;
 
     public boolean onOptionsItemSelected(MenuItem item)
     {
@@ -63,11 +81,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        
+
         TextView userName;
-        userName = (TextView) findViewById(R.id.nameTextView);
+        userName = (TextView) findViewById(nameTextView);
+
+        TextView velkommen = (TextView)findViewById(R.id.welcomeTextView);
+
+
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        getSupportActionBar().setIcon(R.drawable.bubble1);
+
+
+
+
+
+
 
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
@@ -97,7 +131,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences spf = PreferenceManager.getDefaultSharedPreferences(this);
+        String storeColor = spf.getString(getString(R.string.key_color),"#2bff00");
+        layoutHome = (RelativeLayout)findViewById(R.id.layoutHome);
+        layoutHome.setBackgroundColor(Color.parseColor(storeColor));
 
+    }
 
     public boolean onCreateOptionsMenu(Menu menu)
     {
