@@ -23,6 +23,7 @@ public class SignupActivity extends AppCompatActivity {
     Button signUp;
     EditText emailText;
     EditText passwordText;
+    EditText confirmPasswordText;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -38,6 +39,7 @@ public class SignupActivity extends AppCompatActivity {
         signUp = (Button) findViewById(R.id.signUpButton);
         emailText = (EditText) findViewById(R.id.emailText);
         passwordText = (EditText) findViewById(R.id.passwordText);
+        confirmPasswordText = (EditText) findViewById(R.id.confirmPasswordText);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -67,12 +69,32 @@ public class SignupActivity extends AppCompatActivity {
 
                 String email = emailText.getText().toString();
                 String pass = passwordText.getText().toString();
+                String conPass = confirmPasswordText.getText().toString();
 
+                if(email.equals("") || pass.equals("") || conPass.equals(""))
+                {
+                    Toast.makeText(SignupActivity.this, R.string.empty_fields,
+                            Toast.LENGTH_SHORT).show();
+                }
 
-                createAccount(email, pass);
+                else if(!pass.equals(conPass))
+                {
 
-                Toast.makeText(SignupActivity.this, R.string.success_create,
+                    Toast.makeText(SignupActivity.this, R.string.password_not,
                         Toast.LENGTH_SHORT).show();
+
+                    passwordText.setText("");
+                    confirmPasswordText.setText("");
+                }
+
+                else
+                {
+                    createAccount(email, pass);
+
+                    Toast.makeText(SignupActivity.this, R.string.success_create,
+                            Toast.LENGTH_SHORT).show();
+                }
+
 
 
             }

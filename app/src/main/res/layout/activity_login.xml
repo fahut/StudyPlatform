@@ -12,11 +12,11 @@
         android:paddingLeft="24dp"
         android:paddingRight="24dp">
 
-        <ImageView android:src="@drawable/ic_people_black_24dp"
+        <ImageView android:src="@mipmap/imageedit_1_9052204102"
             android:id="@+id/imageview1"
             android:layout_width="wrap_content"
-            android:layout_height="72dp"
-            android:layout_marginBottom="24dp"
+            android:layout_height="108dp"
+            android:layout_marginBottom="36dp"
             android:layout_gravity="center_horizontal" />
 
 

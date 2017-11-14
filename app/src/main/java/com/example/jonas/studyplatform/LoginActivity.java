@@ -59,15 +59,25 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
 
+
+
         tButton = (Button) findViewById(R.id.btn_login);
         tButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
+
                 String email = mEmailField.getText().toString();
                 String pass = mPasswordField.getText().toString();
+                if(email.equals("") || pass.equals(""))
+                {
+                    Toast.makeText(LoginActivity.this, R.string.failed_towrite,
+                            Toast.LENGTH_SHORT).show();
+                }
 
-                signIn(email, pass);
+                else {
+                    signIn(email, pass);
+                }
             }
         });
 
@@ -96,31 +106,6 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public void createAccount(String email, String password) {
-        Log.d(TAG, "createAccount:" + email);
-
-
-        // [START create_user_with_email]
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
-
-                        // If sign in fails, display a message to the user. If sign in succeeds
-                        // the auth state listener will be notified and logic to handle the
-                        // signed in user can be handled in the listener.
-                        if (!task.isSuccessful()) {
-                            Toast.makeText(LoginActivity.this, R.string.failed_tosignup,
-                                    Toast.LENGTH_SHORT).show();
-                        }
-
-
-                        // ...
-                    }
-                });
-    }
-        // [END create_user_with_email]
 
     public void signIn(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password)

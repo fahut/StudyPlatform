@@ -34,4 +34,7 @@
     <string name="welcome">Welcome</string>
     <string name="failed_login">Failed to Login, try again or create a user</string>
     <string name="failed_tosignup">Failed to create a user, please use a real email and a six diggit password</string>
+    <string name="failed_towrite">Please input your email and password</string>
+    <string name="password_not">The passwords do not match</string>
+    <string name="empty_fields">One or more of the fields are empty</string>
 </resources>
