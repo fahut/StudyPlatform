@@ -20,7 +20,7 @@
         android:layout_height="match_parent"
         android:layout_weight="0.4"
         android:gravity="center"
-        android:paddingLeft="10dp"
+        android:paddingLeft="8dp"
         android:text="name" />
 
     <TextView
@@ -39,7 +39,8 @@
         android:layout_height="match_parent"
         android:text="Strong2"
         android:paddingLeft="20dp"
-        android:paddingRight="13dp"
+        android:paddingRight="14dp"
+        android:layout_marginRight="0dp"
         android:layout_weight="0.3"
         android:gravity="center"/>
 </LinearLayout>

@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import static com.example.jonas.studyplatform.R.id.writeToButton;
 
@@ -16,6 +17,16 @@ public class AnotherUserActivity extends AppCompatActivity {
 
     Button writeButton;
     User thisUser;
+
+    TextView nameText;
+    TextView eduText;
+    TextView usernameText;
+    TextView strong1Text;
+    TextView strong2Text;
+    TextView weak1Text;
+    TextView weak2Text;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +41,37 @@ public class AnotherUserActivity extends AppCompatActivity {
 
         getSupportActionBar().setIcon(R.mipmap.imageedit_1_9052204102);
 
-
+        Bundle bundle = getIntent().getExtras();
+        String data1 = bundle.getString("name");
+        String data2 = bundle.getString("edu");
+        String data3 = bundle.getString("username");
+        String data4 = bundle.getString("strong1");
+        String data5 = bundle.getString("strong2");
+        String data6 = bundle.getString("weak1");
+        String data7 = bundle.getString("weak2");
         thisUser = new User();
         //Set up this new user from the key sent from search and fill the textviews
 
+        nameText = (TextView) findViewById(R.id.displayNameTextView);
+        nameText.setText(data1);
+
+        eduText = (TextView) findViewById(R.id.displayEducationTextView);
+        eduText.setText(data2);
+
+        usernameText = (TextView) findViewById(R.id.displayUsernameTextView);
+        usernameText.setText(data3);
+
+        strong1Text = (TextView) findViewById(R.id.displayStrong1TextView);
+        strong1Text.setText(data4);
+
+        strong2Text = (TextView) findViewById(R.id.displayStrong2TextView);
+        strong2Text.setText(data5);
+
+        weak1Text = (TextView) findViewById(R.id.displayWeak1TextView);
+        weak1Text.setText(data6);
+
+        weak2Text = (TextView) findViewById(R.id.displayWeak2TextView);
+        weak2Text.setText(data7);
 
         writeButton = (Button) findViewById(writeToButton);
         writeButton.setOnClickListener(new View.OnClickListener() {

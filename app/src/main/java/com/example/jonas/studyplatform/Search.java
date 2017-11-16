@@ -97,6 +97,15 @@ public class Search extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 User u = (User) listView.getItemAtPosition(position);
 
+                Intent intent = new Intent(Search.this, AnotherUserActivity.class);
+                intent.putExtra("name", u.getName());
+                intent.putExtra("edu", u.getEducation());
+                intent.putExtra("username", u.getUsername());
+                intent.putExtra("strong1", u.getStrong1());
+                intent.putExtra("strong2", u.getStrong2());
+                intent.putExtra("weak1", u.getWeak1());
+                intent.putExtra("weak2", u.getWeak2());
+                startActivity(intent);
 
                 //what to do - Sent key to AnotherUserActivity and open this activity
 
