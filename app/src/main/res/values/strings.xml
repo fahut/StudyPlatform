@@ -1,4 +1,3 @@
-
 <resources>
     <string name="app_name">Study Platform</string>
     <string name="home">Home</string>
@@ -39,12 +38,21 @@
     <string name="password_not">The passwords do not match</string>
     <string name="empty_fields">One or more of the fields are empty</string>
     <string name="key_color">backgroundColor</string>
-
+    <string name="forgot">Forgot Password?</string>
+    <string name="forgot_mail">Reset password email has been sent to: </string>
+    <string name="can_teach">Can teach</string>
+    <string name="can_learn">Wants to learn</string>
+    <string name="forgot_blank">Please write you email in the email field</string>
     <string name="Blue">Blue</string>
     <string name="Red">Red</string>
     <string name="Green">Green</string>
     <string name="Pink">Pink</string>
-
+    <string name="write_to">Write Message</string>
+    <string name="weak">Course to learn</string>
+    <string name="strong">Course to teach</string>
+    <string name="edu">Education</string>
+    <string name="visitUs">Visit us on our social media Facebook or Twitter. Find the links to the right here --> </string>
+    <string name="comeVisitUs">You are also welcome to come visit us, see our location below</string>
 
 
 </resources>

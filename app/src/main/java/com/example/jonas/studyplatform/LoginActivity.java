@@ -20,6 +20,8 @@ public class LoginActivity extends AppCompatActivity {
 
     Button tButton;
     Button sButton;
+    Button fButton;
+
 
     private EditText mEmailField;
     private EditText mPasswordField;
@@ -81,6 +83,39 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        fButton = (Button) findViewById(R.id.forgotButton);
+        fButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                FirebaseAuth auth = FirebaseAuth.getInstance();
+                final String emailAdd = mEmailField.getText().toString();
+
+                if (!emailAdd.equals("")) {
+                    auth.sendPasswordResetEmail(emailAdd)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(LoginActivity.this, ""+ getString(R.string.forgot_mail) + " " + emailAdd,
+                                                Toast.LENGTH_SHORT).show();
+                                        Log.d(TAG, "Email sent.");
+                                    }
+                                }
+                            });
+
+                }
+                else
+                {
+                    Toast.makeText(LoginActivity.this, R.string.forgot_blank,
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+
+        });
+
+
         sButton = (Button) findViewById(R.id.btn_signup);
         sButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,7 +168,11 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
 
+
+
     }
+
+
 
 
 

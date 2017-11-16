@@ -10,22 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <uses-permission android:name="android.permission.INTERNET" />
-        <activity android:name=".MainActivity">
 
-        </activity>
+        <activity android:name=".MainActivity"></activity>
         <activity
             android:name=".Settings"
-            android:parentActivityName=".MainActivity">
-
-    </activity>
+            android:parentActivityName=".MainActivity"></activity>
         <activity
             android:name=".Search"
-            android:parentActivityName=".MainActivity">
-
-
-            </activity>
-
-
+            android:parentActivityName=".MainActivity"></activity>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,10 +35,13 @@
         <activity android:name=".SignOffActivity" />
         <activity
             android:name=".ChangeMyPageActivity"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".AboutActivity" />
+        <activity android:name=".AnotherUserActivity"></activity>
 
-        </activity>
-        <activity android:name=".AboutActivity"></activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAzKqAHQzU2ITqzKjly-bnCpX3XKZlJ0z8" />
     </application>
 
 </manifest>

@@ -37,6 +37,8 @@ public class MyPageActivity extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
 
+        getSupportActionBar().setIcon(R.mipmap.imageedit_1_9052204102);
+
         myRef = FirebaseDatabase.getInstance().getReference().child("users");
 
         mAuth = FirebaseAuth.getInstance();
@@ -70,13 +72,14 @@ public class MyPageActivity extends AppCompatActivity {
                 TextView tv7 = (TextView) findViewById(R.id.displayWeak1TextView);
                 TextView tv8 = (TextView) findViewById(R.id.displayWeak2TextView);
 
-                tv1.setText("Name: " + currentUser.getName());
-                tv3.setText("Education: " + currentUser.getEducation());
-                tv4.setText("Username: " + currentUser.getUsername());
-                tv5.setText("Strong Course: " + currentUser.getStrong1());
-                tv6.setText("Strong Course: " + currentUser.getStrong2());
-                tv7.setText("Weak Course: " + currentUser.getWeak1());
-                tv8.setText("Weak Course: " + currentUser.getWeak2());
+                tv1.setText(getString(R.string.name) + ": " + currentUser.getName());
+                tv3.setText(getString(R.string.edu)+ ": " + currentUser.getEducation());
+                tv4.setText(getString(R.string.username) + ": " + currentUser.getUsername());
+                tv5.setText(getString(R.string.strong)+ ": " + currentUser.getStrong1());
+                tv6.setText(getString(R.string.strong)+ ": " + currentUser.getStrong2());
+                tv7.setText(getString(R.string.weak)+ ": " + currentUser.getWeak1());
+                tv8.setText(getString(R.string.weak)+ ": " + currentUser.getWeak2());
+
             }
 
             @Override
@@ -134,7 +137,7 @@ public class MyPageActivity extends AppCompatActivity {
 
     }
 
-    ;
+
 
 
 }

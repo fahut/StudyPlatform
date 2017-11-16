@@ -7,7 +7,7 @@
     <string name="name">Navn</string>
     <string name="search">Søg</string>
     <string name="sign_up">Opret Bruger</string>
-    <string name="strong1">Skriv stærkt fag</string>
+    <string name="strong1">Fag du vil undervise</string>
     <string name="username">Brugernavn</string>
     <string name="settings">Indstillinger</string>
     <string name="signout">Log ud</string>
@@ -17,7 +17,7 @@
     <string name="edit_info">Rediger Info</string>
     <string name="edit_information">Opdater din information</string>
     <string name="gender">Køn</string>
-    <string name="weak1">Skriv fag du vil lære</string>
+    <string name="weak1">Fag du vil lære</string>
     <string name="about">Om os</string>
     <string name="about_us">Hej og velkomment til SocialEd. SocialEd er en studie paltform, der er designet til at hjælpe vores brugere med at finde studie partnere. For at du kan være en del af vores søge funktion bedes du opdatere din information under Min Side. Når du har gjort dette, så kan andre studerende finde dig i søgningen. Hvis du vil finde en studie partner kan du gå til søge funktionen, og søge på det fag du har brug for hjælp til.</string>
     <string name="best">Med Venlig Hilsen</string>
@@ -43,4 +43,15 @@
     <string name="failed_towrite">Skriv venligst din e-mail og password</string>
     <string name="key_color">backgroundColor</string>
     <string name="password_not">De to passwords matcher ikke</string>
+    <string name="forgot">Glemt password?</string>
+    <string name="forgot_blank">Skriv venligst din email i email feltet</string>
+    <string name="forgot_mail">En mail til nulstilling af password er sendt til: </string>
+    <string name="can_learn">Vil lære</string>
+    <string name="can_teach">Kan undervise</string>
+    <string name="write_to">Skriv besked</string>
+    <string name="edu">Uddannelse</string>
+    <string name="strong">Kan undervise</string>
+    <string name="weak">Vil gerne lære</string>
+    <string name="comeVisitUs">Du er også velkommen til at besøge os, se vores lokation nederst</string>
+    <string name="visitUs">Besøg os på Facebook og Twitter. Find vores links her --></string>
 </resources>

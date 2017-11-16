@@ -56,13 +56,18 @@ public class ChangeMyPageActivity extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
 
+        getSupportActionBar().setIcon(R.mipmap.imageedit_1_9052204102);
+
         mAuth = FirebaseAuth.getInstance();
+
+
 
         update2Button = (Button) findViewById(editButton);
         update2Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
+
 
 
 
@@ -76,6 +81,8 @@ public class ChangeMyPageActivity extends AppCompatActivity {
 
                 User user = new User(cu, cn, ced, cs1, cs2, cw1, cw2);
                 updateCurrentUser(user);
+
+
 
                 Intent i = new Intent(ChangeMyPageActivity.this, MyPageActivity.class);
                 startActivity(i);
@@ -122,7 +129,11 @@ public class ChangeMyPageActivity extends AppCompatActivity {
         if(mAuth == null) return;
         myRef.child("users").child(mAuth.getCurrentUser().getUid()).setValue(user);
 
+
+
     }
+
+
 
 
     public boolean onCreateOptionsMenu(Menu menu)

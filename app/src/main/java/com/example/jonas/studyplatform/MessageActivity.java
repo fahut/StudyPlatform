@@ -42,6 +42,8 @@ public class MessageActivity extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
 
+        getSupportActionBar().setIcon(R.mipmap.imageedit_1_9052204102);
+
 
         exList = new ArrayList<>();
         itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, exList);

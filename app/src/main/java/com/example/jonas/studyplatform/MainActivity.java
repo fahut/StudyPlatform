@@ -1,38 +1,36 @@
+
 package com.example.jonas.studyplatform;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.preference.Preference;
 import android.preference.PreferenceManager;
-import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Layout;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
-import static android.os.Build.VERSION_CODES.M;
-
-import static com.example.jonas.studyplatform.R.id.layoutHome;
 import static com.example.jonas.studyplatform.R.id.nameTextView;
-import static com.example.jonas.studyplatform.R.xml.preferences;
-import static java.lang.Integer.parseInt;
 
 public class MainActivity extends AppCompatActivity {
 
+    private FirebaseAuth mAuth;
     RelativeLayout layoutHome;
+    ValueEventListener ev;
+    DatabaseReference userRef;
+    DatabaseReference myRef;
 
     public boolean onOptionsItemSelected(MenuItem item)
     {
@@ -82,9 +80,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        
 
-        TextView userName;
+
+        final TextView userName;
         userName = (TextView) findViewById(nameTextView);
 
         TextView velkommen = (TextView)findViewById(R.id.welcomeTextView);
@@ -95,12 +93,14 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setIcon(R.drawable.bubble1);
+        getSupportActionBar().setIcon(R.mipmap.imageedit_1_9052204102);
 
 
 
 
+        myRef = FirebaseDatabase.getInstance().getReference().child("users");
 
+        mAuth = FirebaseAuth.getInstance();
 
 
         ActionBar ab = getSupportActionBar();
@@ -108,19 +108,43 @@ public class MainActivity extends AppCompatActivity {
 
 
         //getCurrentUser
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            // Name, email address, and profile photo Url
-            String name2 = user.getDisplayName();
-            String email2 = user.getEmail();
-            Uri photoUrl = user.getPhotoUrl();
+        userRef = myRef.child(mAuth.getCurrentUser().getUid());
 
-            // The user's ID, unique to the Firebase project. Do NOT use this value to
-            // authenticate with your backend server, if you have one. Use
-            // FirebaseUser.getToken() instead.
-            String uid = user.getUid();
-            userName.setText(email2);
-        }
+
+        ImageButton facebookBtn = (ImageButton)findViewById(R.id.faceBtn);
+        ImageButton twitterBtn = (ImageButton)findViewById(R.id.twitterBtn);
+
+
+        facebookBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://facewebmodal/f?href=/https://www.facebook.com/viauniversitycollege/"));
+                    startActivity(intent);
+                } catch(Exception e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("\"fb://page/https://www.facebook.com/viauniversitycollege/")));
+                }
+            }
+        });
+
+
+        twitterBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://facewebmodal/f?href=/https://twitter.com/viauniversity"));
+                    startActivity(intent);
+                } catch(Exception e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("\"fb://page/https://https://twitter.com/viauniversity/")));
+                }
+            }
+        });
+
+
+
+
+
+
 
 
         //set up textviews
