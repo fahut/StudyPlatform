@@ -46,9 +46,9 @@
         android:layout_below="@id/toolbar">
 
         <ListView
-            android:id="@+id/searchListView"
+            android:id="@+id/channelListView"
             android:layout_below="@+id/toolbar"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="10dp"/>
 

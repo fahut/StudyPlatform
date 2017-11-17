@@ -24,8 +24,6 @@ import java.util.ArrayList;
 public class PreChatActivity extends AppCompatActivity {
 
 
-    ListView chatListView;
-
     private FirebaseAuth mAuth;
 
     ArrayList<String> channelList;
@@ -60,7 +58,8 @@ public class PreChatActivity extends AppCompatActivity {
 
 
         final ArrayAdapter channelAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, channelList);
-        final ListView listView = (ListView) findViewById(R.id.searchListView);
+
+        final ListView listView = (ListView) findViewById(R.id.channelListView);
         listView.setAdapter(channelAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -87,6 +86,7 @@ public class PreChatActivity extends AppCompatActivity {
                 String data2 = (String) dataSnapshot.getKey();
 
                 channelList.add(data2);
+                channelAdapter.notifyDataSetChanged();
             }
 
             @Override
