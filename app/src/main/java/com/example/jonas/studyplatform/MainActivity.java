@@ -4,6 +4,7 @@ package com.example.jonas.studyplatform;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -13,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -25,7 +27,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 import static com.example.jonas.studyplatform.R.id.nameTextView;
+import static com.example.jonas.studyplatform.R.id.twitterBtn;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     ValueEventListener ev;
     DatabaseReference userRef;
     DatabaseReference myRef;
-
+    TextView userName;
 
 
     @Override
@@ -43,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        final TextView userName;
-        userName = (TextView) findViewById(nameTextView);
+        userName = (TextView)findViewById(R.id.nameTextView);
+
 
         TextView velkommen = (TextView)findViewById(R.id.welcomeTextView);
 
@@ -80,14 +84,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://facewebmodal/f?href=/https://www.facebook.com/viauniversitycollege/"));
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/126832583997194"));
                     startActivity(intent);
                 } catch(Exception e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("\"fb://page/https://www.facebook.com/viauniversitycollege/")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/viauniversitycollege")));
                 }
             }
         });
 
+        Button button123 = (Button) findViewById(R.id.testBtn);
+
+        button123.setVisibility(View.INVISIBLE);
+
+
+        
+        {
+            button123.setVisibility(View.VISIBLE);
+        }
 
 
 
@@ -95,10 +108,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://facewebmodal/f?href=/https://twitter.com/viauniversity"));
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?user_id=338916331"));
                     startActivity(intent);
                 } catch(Exception e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("\"fb://page/https://https://twitter.com/viauniversity/")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/viauniversity")));
                 }
             }
         });
