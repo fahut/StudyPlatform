@@ -54,4 +54,7 @@
     <string name="weak">Vil gerne lære</string>
     <string name="comeVisitUs">Du er også velkommen til at besøge os, se vores lokation nederst</string>
     <string name="visitUs">Besøg os på Facebook og Twitter. Find vores links her --></string>
+    <string name="empty">Du har ikke skrevet noget</string>
+    <string name="marker">Markør ved VIA Horsens</string>
+    <string name="sign_out">Du er nu logget ud</string>
 </resources>

@@ -16,12 +16,24 @@ public class User {
     String strong2;
     String weak1;
     String weak2;
+    String uid;
 
     DatabaseReference myRef;
 
 
     public User() {
 
+    }
+
+    public User(String username, String name, String education, String strong1, String strong2, String weak1, String weak2, String uid) {
+        this.username = username;
+        this.name = name;
+        this.education = education;
+        this.strong1 = strong1;
+        this.strong2 = strong2;
+        this.weak1 = weak1;
+        this.weak2 = weak2;
+        this.uid = uid;
     }
 
     public User(String username, String name, String education, String strong1, String strong2, String weak1, String weak2) {
@@ -90,6 +102,15 @@ public class User {
     public String getWeak2()
     {
         return this.weak2;
+    }
+    public void setUid(String uid)
+    {
+        this.uid = uid;
+    }
+
+    public String getUid()
+    {
+        return this.uid;
     }
 
 

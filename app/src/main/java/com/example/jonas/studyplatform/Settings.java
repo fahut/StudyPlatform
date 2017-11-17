@@ -8,11 +8,41 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 public class Settings extends AppCompatActivity {
 
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_settings);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
+
+        getSupportActionBar().setIcon(R.mipmap.imageedit_1_9052204102);
+
+        getFragmentManager().beginTransaction().replace(R.id.frameContainer,
+                new SettingsFragment()).commit();
+
+    }
+
+    public static class SettingsFragment extends PreferenceFragment {
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.preferences);
+        }
+    }
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.main_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
     public boolean onOptionsItemSelected(MenuItem item)
     {
@@ -24,7 +54,7 @@ public class Settings extends AppCompatActivity {
                 return true;
 
             case R.id.message:
-                Intent intent1 = new Intent(Settings.this, MessageActivity.class);
+                Intent intent1 = new Intent(Settings.this, PreChatActivity.class);
                 startActivity(intent1);
                 return true;
 
@@ -53,51 +83,6 @@ public class Settings extends AppCompatActivity {
         }
 
     };
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
-
-        TextView textView = (TextView)findViewById(R.id.enjoyTextView);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        ActionBar ab = getSupportActionBar();
-        ab.setDisplayHomeAsUpEnabled(true);
-
-        getSupportActionBar().setIcon(R.mipmap.imageedit_1_9052204102);
-
-        getFragmentManager().beginTransaction().replace(R.id.frameContainer,
-                new SettingsFragment()).commit();
-
-
-
-
-
-    }
-
-    /**
-     * Fragment for settings.
-     */
-    public static class SettingsFragment extends PreferenceFragment {
-
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.preferences);
-        }
-    }
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        getMenuInflater().inflate(R.menu.main_menu,menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-
-
-
 
 }
 

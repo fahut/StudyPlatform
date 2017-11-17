@@ -61,28 +61,22 @@ public class ChangeMyPageActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
 
-
         update2Button = (Button) findViewById(editButton);
         update2Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
 
+                String cn = changeName.getText().toString().toUpperCase();
+                String ced = changeEducation.getText().toString().toUpperCase();
+                String cu = changeUsername.getText().toString().toUpperCase();
+                String cs1 = changeStrong1.getText().toString().toUpperCase();
+                String cs2 = changeStrong2.getText().toString().toUpperCase();
+                String cw1 = changeWeak1.getText().toString().toUpperCase();
+                String cw2 = changeWeak2.getText().toString().toUpperCase();
 
-
-
-                String cn = changeName.getText().toString();
-                String ced = changeEducation.getText().toString();
-                String cu = changeUsername.getText().toString();
-                String cs1 = changeStrong1.getText().toString().toLowerCase();
-                String cs2 = changeStrong2.getText().toString().toLowerCase();
-                String cw1 = changeWeak1.getText().toString();
-                String cw2 = changeWeak2.getText().toString();
-
-                User user = new User(cu, cn, ced, cs1, cs2, cw1, cw2);
+                User user = new User(cu, cn, ced, cs1, cs2, cw1, cw2, mAuth.getCurrentUser().getUid());
                 updateCurrentUser(user);
-
-
 
                 Intent i = new Intent(ChangeMyPageActivity.this, MyPageActivity.class);
                 startActivity(i);
@@ -124,16 +118,12 @@ public class ChangeMyPageActivity extends AppCompatActivity {
         String weak1 = newUser.getWeak1();
         String weak2 = newUser.getWeak2();
 
-        User user = new User(username, name, education, strong1, strong2, weak1, weak2);
+        User user = new User(username, name, education, strong1, strong2, weak1, weak2, mAuth.getCurrentUser().getUid());
 
         if(mAuth == null) return;
         myRef.child("users").child(mAuth.getCurrentUser().getUid()).setValue(user);
 
-
-
     }
-
-
 
 
     public boolean onCreateOptionsMenu(Menu menu)

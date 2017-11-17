@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,8 +26,6 @@ public class Search extends AppCompatActivity {
     EditText searchEdit;
     Button searchButton;
     ListView searchListView;
-
-    private FirebaseAuth mAuth;
 
     ArrayList<User> userList;
     ArrayList<User> strongList;
@@ -55,22 +52,16 @@ public class Search extends AppCompatActivity {
         userList = new ArrayList<User>();
         strongList = new ArrayList<User>();
 
-        mAuth = FirebaseAuth.getInstance();
-
         final UserAdapter userAdapter = new UserAdapter(this, strongList);
         final ListView listView = (ListView) findViewById(R.id.searchListView);
         listView.setAdapter(userAdapter);
 
         myRef = FirebaseDatabase.getInstance().getReference().child("users");
 
-
-
-
-
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String userResult = searchEdit.getText().toString().toLowerCase();
+                String userResult = searchEdit.getText().toString().toUpperCase();
 
                 userAdapter.clear();
                 for(User user: userList){
@@ -105,11 +96,8 @@ public class Search extends AppCompatActivity {
                 intent.putExtra("strong2", u.getStrong2());
                 intent.putExtra("weak1", u.getWeak1());
                 intent.putExtra("weak2", u.getWeak2());
+                intent.putExtra("uid", u.getUid());
                 startActivity(intent);
-
-                //what to do - Sent key to AnotherUserActivity and open this activity
-
-
             }
 
 
@@ -162,7 +150,7 @@ public class Search extends AppCompatActivity {
                 return true;
 
             case R.id.message:
-                Intent intent1 = new Intent(Search.this, MessageActivity.class);
+                Intent intent1 = new Intent(Search.this, PreChatActivity.class);
                 startActivity(intent1);
                 return true;
 

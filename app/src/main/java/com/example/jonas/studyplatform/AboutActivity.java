@@ -42,7 +42,7 @@ public class AboutActivity extends AppCompatActivity implements OnMapReadyCallba
 
         // Add a marker in Sydney and move the camera
         LatLng horsens = new LatLng(55.871137, 9.886094);
-        mMap.addMarker(new MarkerOptions().position(horsens).title("Marker at VIA University"));
+        mMap.addMarker(new MarkerOptions().position(horsens).title(getString(R.string.marker)));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(horsens));
     }
 
@@ -57,7 +57,7 @@ public class AboutActivity extends AppCompatActivity implements OnMapReadyCallba
                 return true;
 
             case R.id.message:
-                Intent intent1 = new Intent(AboutActivity.this, MessageActivity.class);
+                Intent intent1 = new Intent(AboutActivity.this, PreChatActivity.class);
                 startActivity(intent1);
                 return true;
 

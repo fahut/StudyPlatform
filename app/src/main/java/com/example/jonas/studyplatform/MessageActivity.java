@@ -12,22 +12,31 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class MessageActivity extends AppCompatActivity {
 
     ImageButton mSendButton;
+    private FirebaseAuth mAuth;
     EditText messageEditText;
+    ListView lstView;
     ArrayList<String> exList;
     ArrayAdapter<String> itemsAdapter;
+    DatabaseReference newRef;
     DatabaseReference myRef;
+    User currentUser;
+
+    ValueEventListener ev;
 
 
 
@@ -44,40 +53,53 @@ public class MessageActivity extends AppCompatActivity {
 
         getSupportActionBar().setIcon(R.mipmap.imageedit_1_9052204102);
 
-
-        exList = new ArrayList<>();
-        itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, exList);
+        mAuth = FirebaseAuth.getInstance();
 
         mSendButton = (ImageButton) findViewById(R.id.sendMessageButton);
         messageEditText = (EditText) findViewById(R.id.messageEditText);
 
+        Bundle bundle = getIntent().getExtras();
+        String data1 = bundle.getString("course");
 
-        myRef = FirebaseDatabase.getInstance().getReference().child("Messages");
+        newRef = FirebaseDatabase.getInstance().getReference().child("Chat").child(data1);
 
+        mAuth = FirebaseAuth.getInstance();
 
-        ListView lstView = (ListView) findViewById(R.id.msgListView);
+        exList = new ArrayList<String>();
+
+        itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, exList);
+
+        myRef = FirebaseDatabase.getInstance().getReference().child("users").child(mAuth.getCurrentUser().getUid());
+
+        lstView = (ListView) findViewById(R.id.msgListView);
         lstView.setAdapter(itemsAdapter);
-
-
 
 
         mSendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String friendlyMessage = messageEditText.getText().toString();
-                myRef.push().setValue(friendlyMessage);
-                messageEditText.setText("");
+                Message friendlyMessage = new Message(currentUser.getUsername(), messageEditText.getText().toString());
+                if (friendlyMessage.getPost().equals("")) {
+                    Toast.makeText(MessageActivity.this, getString(R.string.empty),
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    newRef.push().setValue(friendlyMessage);
+                    messageEditText.setText("");
+                }
+
+
             }
         });
 
 
-        myRef.addChildEventListener(new ChildEventListener() {
+        newRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                String data1 = (String) dataSnapshot.getValue(String.class);
 
-                itemsAdapter.add("Message: " + data1);
+                Message data1 = (Message) dataSnapshot.getValue(Message.class);
+
+                itemsAdapter.add(data1.toString());
             }
 
             @Override
@@ -101,9 +123,25 @@ public class MessageActivity extends AppCompatActivity {
             }
         });
 
+        ev = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                currentUser = dataSnapshot.getValue(User.class);
 
 
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
+
+        myRef.addValueEventListener(ev);
     }
+
+
 
     public boolean onCreateOptionsMenu(Menu menu)
     {
@@ -118,6 +156,11 @@ public class MessageActivity extends AppCompatActivity {
             case R.id.settings:
                 Intent intent = new Intent(MessageActivity.this, Settings.class);
                 startActivity(intent);
+                return true;
+
+            case R.id.message:
+                Intent intent7 = new Intent(MessageActivity.this, PreChatActivity.class);
+                startActivity(intent7);
                 return true;
 
             case R.id.home:

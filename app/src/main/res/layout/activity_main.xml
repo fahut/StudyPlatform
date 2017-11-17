@@ -88,6 +88,25 @@
         android:layout_toRightOf="@+id/faceBtn"
         app:srcCompat="@mipmap/iconstwitter" />
 
+    <TextView
+        android:id="@+id/dataText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/enjoyTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp"
+        android:text="TextView" />
+
+
+    <TextView
+        android:id="@+id/numberOfUsersTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/enjoyTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp"
+        android:text="TextView" />
+
 
 </RelativeLayout>
 

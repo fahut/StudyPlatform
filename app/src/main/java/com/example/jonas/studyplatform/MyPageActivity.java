@@ -107,7 +107,7 @@ public class MyPageActivity extends AppCompatActivity {
                 return true;
 
             case R.id.message:
-                Intent intent1 = new Intent(MyPageActivity.this, MessageActivity.class);
+                Intent intent1 = new Intent(MyPageActivity.this, PreChatActivity.class);
                 startActivity(intent1);
                 return true;
 

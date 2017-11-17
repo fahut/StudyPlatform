@@ -57,7 +57,6 @@ public class SignupActivity extends AppCompatActivity {
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
                 }
-                // ...
             }
         };
 
@@ -145,13 +144,9 @@ public class SignupActivity extends AppCompatActivity {
                             userRef.child("username").setValue("");
                             userRef.child("weak1").setValue("");
                             userRef.child("weak2").setValue("");
-
-
-
+                            userRef.child("uid").setValue(mAuth.getCurrentUser().getUid());
                         }
 
-
-                        // ...
                     }
                 });
     }

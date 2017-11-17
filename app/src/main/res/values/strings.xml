@@ -47,12 +47,16 @@
     <string name="Red">Red</string>
     <string name="Green">Green</string>
     <string name="Pink">Pink</string>
+    <string name="sign_out">You are now signed out</string>
+    <string name="marker">Marker at VIA Horsens</string>
     <string name="write_to">Write Message</string>
     <string name="weak">Course to learn</string>
+    <string name="empty">You did not write anything</string>
     <string name="strong">Course to teach</string>
     <string name="edu">Education</string>
     <string name="visitUs">Visit us on our social media Facebook or Twitter. Find the links to the right here --> </string>
     <string name="comeVisitUs">You are also welcome to come visit us, see our location below</string>
+    <string name="title_activity_chat">ChatActivity</string>
 
 
 </resources>

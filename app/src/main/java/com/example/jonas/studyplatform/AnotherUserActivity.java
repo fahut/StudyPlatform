@@ -7,16 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import static com.example.jonas.studyplatform.R.id.writeToButton;
 
 public class AnotherUserActivity extends AppCompatActivity {
 
     Button writeButton;
-    User thisUser;
 
     TextView nameText;
     TextView eduText;
@@ -25,8 +21,6 @@ public class AnotherUserActivity extends AppCompatActivity {
     TextView strong2Text;
     TextView weak1Text;
     TextView weak2Text;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +43,6 @@ public class AnotherUserActivity extends AppCompatActivity {
         String data5 = bundle.getString("strong2");
         String data6 = bundle.getString("weak1");
         String data7 = bundle.getString("weak2");
-        thisUser = new User();
-        //Set up this new user from the key sent from search and fill the textviews
 
         nameText = (TextView) findViewById(R.id.displayNameTextView);
         nameText.setText(data1);
@@ -73,17 +65,7 @@ public class AnotherUserActivity extends AppCompatActivity {
         weak2Text = (TextView) findViewById(R.id.displayWeak2TextView);
         weak2Text.setText(data7);
 
-        writeButton = (Button) findViewById(writeToButton);
-        writeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                Intent i = new Intent(AnotherUserActivity.this, MessageActivity.class);
-                //send key an initialize chat
-                startActivity(i);
-            }
-
-        });
 
     }
 
@@ -101,7 +83,7 @@ public class AnotherUserActivity extends AppCompatActivity {
                 return true;
 
             case R.id.message:
-                Intent intent1 = new Intent(AnotherUserActivity.this, MessageActivity.class);
+                Intent intent1 = new Intent(AnotherUserActivity.this, PreChatActivity.class);
                 startActivity(intent1);
                 return true;
 
@@ -123,6 +105,11 @@ public class AnotherUserActivity extends AppCompatActivity {
             case R.id.about:
                 Intent intent6 = new Intent(AnotherUserActivity.this, AboutActivity.class);
                 startActivity(intent6);
+                return true;
+
+            case R.id.mypage:
+                Intent intent7 = new Intent(AnotherUserActivity.this, MyPageActivity.class);
+                startActivity(intent7);
                 return true;
 
             default:
