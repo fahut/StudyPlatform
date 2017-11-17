@@ -45,25 +45,25 @@ public class AnotherUserActivity extends AppCompatActivity {
         String data7 = bundle.getString("weak2");
 
         nameText = (TextView) findViewById(R.id.displayNameTextView);
-        nameText.setText(data1);
+        nameText.setText(getString(R.string.name) + ": " + data1);
 
         eduText = (TextView) findViewById(R.id.displayEducationTextView);
-        eduText.setText(data2);
+        eduText.setText(getString(R.string.edu) + ": " + data2);
 
         usernameText = (TextView) findViewById(R.id.displayUsernameTextView);
-        usernameText.setText(data3);
+        usernameText.setText(getString(R.string.username) + ": " + data3);
 
         strong1Text = (TextView) findViewById(R.id.displayStrong1TextView);
-        strong1Text.setText(data4);
+        strong1Text.setText(getString(R.string.strong) + ": " + data4);
 
         strong2Text = (TextView) findViewById(R.id.displayStrong2TextView);
-        strong2Text.setText(data5);
+        strong2Text.setText(getString(R.string.strong) + ": " + data5);
 
         weak1Text = (TextView) findViewById(R.id.displayWeak1TextView);
-        weak1Text.setText(data6);
+        weak1Text.setText(getString(R.string.weak) + ": " + data6);
 
         weak2Text = (TextView) findViewById(R.id.displayWeak2TextView);
-        weak2Text.setText(data7);
+        weak2Text.setText(getString(R.string.weak) + ": " + data7);
 
 
 
