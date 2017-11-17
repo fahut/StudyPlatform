@@ -31,7 +31,7 @@ public class Search extends AppCompatActivity {
     ArrayList<User> strongList;
 
     DatabaseReference myRef;
-
+    int count = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +45,7 @@ public class Search extends AppCompatActivity {
 
         getSupportActionBar().setIcon(R.mipmap.imageedit_1_9052204102);
 
+
         searchEdit = (EditText) findViewById(R.id.searchEditText);
         searchButton = (Button) findViewById(R.id.searchUserButton);
         searchListView = (ListView) findViewById(R.id.searchListView);
@@ -55,6 +56,7 @@ public class Search extends AppCompatActivity {
         final UserAdapter userAdapter = new UserAdapter(this, strongList);
         final ListView listView = (ListView) findViewById(R.id.searchListView);
         listView.setAdapter(userAdapter);
+
 
         myRef = FirebaseDatabase.getInstance().getReference().child("users");
 
@@ -109,7 +111,10 @@ public class Search extends AppCompatActivity {
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                     User data2 = (User) dataSnapshot.getValue(User.class);
 
-                    userList.add(data2);
+                    userList.add(data2);;
+
+
+
             }
 
             @Override

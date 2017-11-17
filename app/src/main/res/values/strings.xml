@@ -14,9 +14,12 @@
     <string name="settings">Settings</string>
     <string name="edit_information">Update Your Information</string>
     <string name="edit_info">Edit Info</string>
+    <string name="updateinfo">You can update your user information here</string>
     <string name="signout">Sign Out</string>
     <string name="mypage">My Page</string>
+    <string name="count">Number of SocialEd users: </string>
     <string name="chat">Chat</string>
+    <string name="socialed">SocialEd</string>
     <string name="about">About Us</string>
     <string name="about_us">Hello and welcome to SocialEd. SocialEd is a StudyPlatform designed to assist users in the finding study partners. For you to be part of the partner search program please update you information in the My Page site. When you hvae done this, other student can find you in our search. If you want to find a study partner, then go to the search site and search for a course you need help in.</string>
     <string name="enjoy">Enjoy our App</string>

@@ -57,4 +57,8 @@
     <string name="empty">Du har ikke skrevet noget</string>
     <string name="marker">Markør ved VIA Horsens</string>
     <string name="sign_out">Du er nu logget ud</string>
+    <string name="count">"Antal SocialEd brugere: "</string>
+    <string name="socialed">SocialEd</string>
+    <string name="updateinfo">Du kan opdatere din bruger her</string>
+    <string name="title_activity_chat">ChatActivity</string>
 </resources>

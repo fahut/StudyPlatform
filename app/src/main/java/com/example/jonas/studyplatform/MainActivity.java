@@ -4,7 +4,6 @@ package com.example.jonas.studyplatform;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -27,9 +26,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
-import static com.example.jonas.studyplatform.R.id.nameTextView;
-import static com.example.jonas.studyplatform.R.id.twitterBtn;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,8 +34,14 @@ public class MainActivity extends AppCompatActivity {
     RelativeLayout layoutHome;
     ValueEventListener ev;
     DatabaseReference userRef;
-    DatabaseReference myRef;
+    DatabaseReference myrRef;
     TextView userName;
+    TextView countMe;
+    TextView updateInfo;
+    Button but;
+
+    ArrayList<User> buserList;
+    int count = 0;
 
 
     @Override
@@ -50,29 +53,41 @@ public class MainActivity extends AppCompatActivity {
         userName = (TextView)findViewById(R.id.nameTextView);
 
 
-        TextView velkommen = (TextView)findViewById(R.id.welcomeTextView);
+        countMe = (TextView)findViewById(R.id.countMe);
 
-        final TextView tvCount = (TextView)findViewById(R.id.numberOfUsersTV);
+        updateInfo = (TextView) findViewById(R.id.updateInfoView);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setIcon(R.mipmap.imageedit_1_9052204102);
 
+        buserList = new ArrayList<User>();
 
 
-        myRef = FirebaseDatabase.getInstance().getReference().child("users");
+        myrRef = FirebaseDatabase.getInstance().getReference().child("users");
 
         mAuth = FirebaseAuth.getInstance();
+
+        but = (Button) findViewById(R.id.updateButton3) ;
 
 
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
 
+        but.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(MainActivity.this, ChangeMyPageActivity.class);
+                startActivity(i);
+            }
+
+        });
 
 
         //getCurrentUser
-        userRef = myRef.child(mAuth.getCurrentUser().getUid());
+        userRef = myrRef.child(mAuth.getCurrentUser().getUid());
 
 
         ImageButton facebookBtn = (ImageButton)findViewById(R.id.faceBtn);
@@ -92,15 +107,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button button123 = (Button) findViewById(R.id.testBtn);
 
-        button123.setVisibility(View.INVISIBLE);
-
-
-        
-        {
-            button123.setVisibility(View.VISIBLE);
-        }
 
 
 
@@ -117,15 +124,17 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        myRef = FirebaseDatabase.getInstance().getReference("users");
-        myRef.addChildEventListener(new ChildEventListener() {
+        myrRef.addChildEventListener(new ChildEventListener() {
                                         @Override
                                         public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                                            long count = dataSnapshot
-                                                    .child("users")
-                                                    .getChildrenCount();
 
-                                            tvCount.setText("There are currently: " + String.valueOf(count) + " users of SocialEd");
+                                            User data2 = (User) dataSnapshot.getValue(User.class);
+
+                                            buserList.add(data2);
+                                            count = buserList.size();
+
+                                            countMe.setText(getString(R.string.count)+count);
+
 
                                         }
 
@@ -158,6 +167,15 @@ public class MainActivity extends AppCompatActivity {
 
                 userName.setText(currentUser.getName());
 
+                if(userName.getText().toString().length()==0)
+                {
+                    updateInfo.setText(getString(R.string.updateinfo));
+                    but.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+                    but.setVisibility(View.INVISIBLE);
+                }
 
 
             }
@@ -169,6 +187,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
         userRef.addValueEventListener(ev);
+
 
     }
 

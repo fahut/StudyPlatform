@@ -37,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 
+
         mEmailField = (EditText) findViewById(R.id.loginUsername);
         mPasswordField = (EditText) findViewById(R.id.loginPassword);
 
@@ -56,6 +57,7 @@ public class LoginActivity extends AppCompatActivity {
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
                 }
+                // ...
             }
         };
 
@@ -166,6 +168,18 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
 
+
+
     }
+
+
+
+
+
+
+
+
+
+
 }
 

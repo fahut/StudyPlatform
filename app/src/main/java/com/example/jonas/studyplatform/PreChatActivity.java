@@ -31,7 +31,7 @@ public class PreChatActivity extends AppCompatActivity {
     ArrayList<String> channelList;
 
     DatabaseReference myRef;
-    DatabaseReference userRef;
+    DatabaseReference userrRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ public class PreChatActivity extends AppCompatActivity {
 
         myRef = FirebaseDatabase.getInstance().getReference().child("Chat");
 
-        userRef = myRef.child(mAuth.getCurrentUser().getUid());
+        userrRef = myRef.child(mAuth.getCurrentUser().getUid());
 
 
 
@@ -127,7 +127,7 @@ public class PreChatActivity extends AppCompatActivity {
                 return true;
 
             case R.id.message:
-                Intent intent1 = new Intent(PreChatActivity.this, MessageActivity.class);
+                Intent intent1 = new Intent(PreChatActivity.this, PreChatActivity.class);
                 startActivity(intent1);
                 return true;
 
