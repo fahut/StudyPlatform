@@ -36,14 +36,16 @@
         <activity
             android:name=".ChangeMyPageActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".AboutActivity" />
+        <activity android:name=".AboutActivity"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".AnotherUserActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAzKqAHQzU2ITqzKjly-bnCpX3XKZlJ0z8" />
 
-        <activity android:name=".PreChatActivity" />
+        <activity android:name=".PreChatActivity"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>
