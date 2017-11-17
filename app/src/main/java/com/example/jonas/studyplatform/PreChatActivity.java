@@ -126,11 +126,6 @@ public class PreChatActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
 
-            case R.id.message:
-                Intent intent1 = new Intent(PreChatActivity.this, PreChatActivity.class);
-                startActivity(intent1);
-                return true;
-
             case R.id.home:
                 Intent intent2 = new Intent(PreChatActivity.this, MainActivity.class);
                 startActivity(intent2);

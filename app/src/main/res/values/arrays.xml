@@ -2,6 +2,7 @@
 <resources>
 
     <string-array name="color_name">
+        <item>White</item>
         <item>Blue</item>
         <item>Red</item>
         <item>Green</item>
@@ -9,6 +10,7 @@
     </string-array>
 
     <string-array name="color_values">
+        <item>#ffffff</item>
     <item>#5694ff</item>
     <item>#ff5052</item>
     <item>#2bff00</item>
