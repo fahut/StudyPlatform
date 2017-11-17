@@ -100,6 +100,7 @@ public class MessageActivity extends AppCompatActivity {
                 Message data1 = (Message) dataSnapshot.getValue(Message.class);
 
                 itemsAdapter.add(data1.toString());
+                lstView.smoothScrollToPosition(itemsAdapter.getCount() -1);
             }
 
             @Override

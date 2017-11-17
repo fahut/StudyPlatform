@@ -19,6 +19,33 @@
         tools:layout_editor_absoluteX="8dp" />
 
 
+
+    <LinearLayout
+        android:id="@+id/searchForm"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="#91f1f1f1"
+        android:orientation="horizontal"
+        android:paddingBottom="2dp" >
+
+        <EditText
+            android:visibility="gone"
+            android:id="@+id/searchEditText"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/button1"
+            android:layout_toLeftOf="@+id/sendMessageButton"
+            android:layout_weight="0.72"
+            android:ems="10"
+            android:maxHeight="0dp" />
+
+
+    </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,7 +53,7 @@
         android:layout_above="@+id/searchForm">
 
         <ListView
-            android:id="@+id/chatListView"
+            android:id="@+id/searchListView"
             android:layout_below="@+id/toolbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,4 +66,3 @@
 
 
 </RelativeLayout>
-

@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,14 +26,17 @@ public class PreChatActivity extends AppCompatActivity {
 
     ListView chatListView;
 
+    private FirebaseAuth mAuth;
+
     ArrayList<String> channelList;
 
     DatabaseReference myRef;
+    DatabaseReference userRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+        setContentView(R.layout.activity_pre_chat);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -42,11 +46,18 @@ public class PreChatActivity extends AppCompatActivity {
 
         getSupportActionBar().setIcon(R.mipmap.imageedit_1_9052204102);
 
-        chatListView = (ListView) findViewById(R.id.chatListView);
+        mAuth = FirebaseAuth.getInstance();
+
 
         myRef = FirebaseDatabase.getInstance().getReference().child("Chat");
 
+        userRef = myRef.child(mAuth.getCurrentUser().getUid());
+
+
+
         channelList = new ArrayList<String>();
+
+
 
         final ArrayAdapter channelAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, channelList);
         final ListView listView = (ListView) findViewById(R.id.searchListView);
@@ -116,7 +127,7 @@ public class PreChatActivity extends AppCompatActivity {
                 return true;
 
             case R.id.message:
-                Intent intent1 = new Intent(PreChatActivity.this, PreChatActivity.class);
+                Intent intent1 = new Intent(PreChatActivity.this, MessageActivity.class);
                 startActivity(intent1);
                 return true;
 
