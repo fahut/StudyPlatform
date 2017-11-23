@@ -2,11 +2,11 @@
 <resources>
 
     <string-array name="color_name">
-        <item>White</item>
-        <item>Blue</item>
-        <item>Red</item>
-        <item>Green</item>
-        <item>Pink</item>
+        <item>@string/white</item>
+        <item>@string/Blue</item>
+        <item>@string/Red</item>
+        <item>@string/Green</item>
+        <item>@string/Pink</item>
     </string-array>
 
     <string-array name="color_values">

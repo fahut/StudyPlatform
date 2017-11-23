@@ -12,7 +12,7 @@
         android:key="@string/key_color"
         android:shouldDisableView="false"
         android:summary="Choose a background color"
-        android:title="Background Color" />
+        android:title="@string/backg" />
 
 
 </PreferenceScreen>

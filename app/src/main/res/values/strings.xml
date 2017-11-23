@@ -50,6 +50,8 @@
     <string name="Red">Red</string>
     <string name="Green">Green</string>
     <string name="Pink">Pink</string>
+    <string name="white">White</string>
+    <string name="backg">Background Color</string>
     <string name="sign_out">You are now signed out</string>
     <string name="marker">Marker at VIA Horsens</string>
     <string name="write_to">Write Message</string>

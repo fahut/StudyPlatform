@@ -61,4 +61,6 @@
     <string name="socialed">SocialEd</string>
     <string name="updateinfo">Du kan opdatere din bruger her</string>
     <string name="title_activity_chat">ChatActivity</string>
+    <string name="white">Hvid</string>
+    <string name="backg">Baggrundsfarve</string>
 </resources>
