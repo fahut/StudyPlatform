@@ -63,4 +63,5 @@
     <string name="title_activity_chat">ChatActivity</string>
     <string name="white">Hvid</string>
     <string name="backg">Baggrundsfarve</string>
+    <string name="backgsum">Vælg en baggrundsfarve</string>
 </resources>

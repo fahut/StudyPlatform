@@ -24,7 +24,7 @@ import java.util.ArrayList;
 public class PreChatActivity extends AppCompatActivity {
 
 
-    private FirebaseAuth mAuth;
+    private static FirebaseAuth mAuth;
 
     ArrayList<String> channelList;
 
@@ -57,6 +57,7 @@ public class PreChatActivity extends AppCompatActivity {
 
 
 
+
         final ArrayAdapter channelAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, channelList);
 
         final ListView listView = (ListView) findViewById(R.id.channelListView);
@@ -64,9 +65,10 @@ public class PreChatActivity extends AppCompatActivity {
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
+
+
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String s = (String) listView.getItemAtPosition(position);
-
                 Intent intent = new Intent(PreChatActivity.this, MessageActivity.class);
                 intent.putExtra("course", s);
                 startActivity(intent);
@@ -109,6 +111,12 @@ public class PreChatActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public static String getUs()
+    {
+        String bob = mAuth.getCurrentUser().getUid();
+        return bob;
     }
 
     public boolean onCreateOptionsMenu(Menu menu)

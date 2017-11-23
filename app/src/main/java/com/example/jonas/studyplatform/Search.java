@@ -111,7 +111,7 @@ public class Search extends AppCompatActivity {
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                     User data2 = (User) dataSnapshot.getValue(User.class);
 
-                    userList.add(data2);;
+                    userList.add(data2);
 
 
 
@@ -137,6 +137,10 @@ public class Search extends AppCompatActivity {
 
             }
         });
+    }
+
+    public ArrayList<User> getUserList() {
+        return userList;
     }
 
     public boolean onCreateOptionsMenu(Menu menu)

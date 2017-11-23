@@ -32,6 +32,7 @@ public class MessageActivity extends AppCompatActivity {
     ListView lstView;
     ArrayList<String> exList;
     ArrayAdapter<String> itemsAdapter;
+    MessageAdapter messageAdapter;
     DatabaseReference newRef;
     DatabaseReference myRef;
     User currentUser;
@@ -67,24 +68,26 @@ public class MessageActivity extends AppCompatActivity {
 
         exList = new ArrayList<String>();
 
-        itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, exList);
 
         myRef = FirebaseDatabase.getInstance().getReference().child("users").child(mAuth.getCurrentUser().getUid());
 
+        messageAdapter = new MessageAdapter(this, exList);
+
         lstView = (ListView) findViewById(R.id.msgListView);
-        lstView.setAdapter(itemsAdapter);
+        lstView.setAdapter(messageAdapter);
 
 
         mSendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Message friendlyMessage = new Message(currentUser.getUsername(), messageEditText.getText().toString());
+                Message friendlyMessage = new Message(currentUser.getUsername(), messageEditText.getText().toString(), mAuth.getCurrentUser().getUid());
                 if (friendlyMessage.getPost().equals("")) {
                     Toast.makeText(MessageActivity.this, getString(R.string.empty),
                             Toast.LENGTH_SHORT).show();
                 } else {
                     newRef.push().setValue(friendlyMessage);
+
                     messageEditText.setText("");
                 }
 
@@ -99,8 +102,8 @@ public class MessageActivity extends AppCompatActivity {
 
                 Message data1 = (Message) dataSnapshot.getValue(Message.class);
 
-                itemsAdapter.add(data1.toString());
-                lstView.smoothScrollToPosition(itemsAdapter.getCount() -1);
+                messageAdapter.add(data1.toString());
+                lstView.smoothScrollToPosition(messageAdapter.getCount() -1);
             }
 
             @Override

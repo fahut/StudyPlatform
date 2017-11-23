@@ -11,7 +11,7 @@
         android:entryValues="@array/color_values"
         android:key="@string/key_color"
         android:shouldDisableView="false"
-        android:summary="Choose a background color"
+        android:summary="@string/backgsum"
         android:title="@string/backg" />
 
 
