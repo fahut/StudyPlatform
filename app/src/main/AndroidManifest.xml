@@ -6,9 +6,11 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/socialed"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
+        android:configChanges="locale"
         android:theme="@style/AppTheme">
+
         <uses-permission android:name="android.permission.INTERNET" />
 
         <activity android:name=".MainActivity" />
@@ -38,7 +40,8 @@
             android:parentActivityName=".MainActivity" />
         <activity android:name=".AboutActivity"
             android:parentActivityName=".MainActivity"/>
-        <activity android:name=".AnotherUserActivity" />
+        <activity android:name=".AnotherUserActivity"
+            android:parentActivityName=".MainActivity"/>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

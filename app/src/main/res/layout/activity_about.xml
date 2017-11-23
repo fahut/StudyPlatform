@@ -9,7 +9,7 @@
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="368dp"
+        android:layout_width="match_parent"
         android:layout_height="56dp"
         android:background="?attr/colorPrimary"
         android:elevation="4dp"
@@ -19,7 +19,7 @@
         tools:layout_editor_absoluteY="0dp" />
 
     <ScrollView
-        android:layout_width="368dp"
+        android:layout_width="match_parent"
         android:layout_height="493dp"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="65dp">
@@ -34,7 +34,6 @@
             <TextView
                 android:id="@+id/aboutUs"
                 android:layout_width="match_parent"
-                android:paddingRight="20dp"
                 android:layout_height="240dp"
                 android:layout_marginTop="30dp"
                 android:text="@string/about_us"
@@ -47,6 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_weight="0.72"
+                android:gravity="center"
                 android:text="@string/enjoy"
                 android:textSize="20sp" />
 
@@ -55,11 +55,13 @@
                 android:id="@+id/enjoytv"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
+                android:gravity="center"
                 android:text="@string/best"
                 android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/textView4"
+                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/kasper"

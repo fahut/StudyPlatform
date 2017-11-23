@@ -109,7 +109,8 @@
         android:layout_marginTop="6dp"
         app:layout_constraintTop_toBottomOf="@+id/changeStrong2EditText"
         android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="8dp" />
 
     <EditText
         android:id="@+id/changeWeak2EditText"
@@ -121,19 +122,19 @@
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/changeWeak1EditText"
         android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="8dp" />
 
     <TextView
         android:id="@+id/changeNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/name"
-        android:layout_marginLeft="16dp"
+        android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/changeNameEditText"
-        android:layout_marginRight="16dp"
         android:layout_marginTop="21dp"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:layout_marginStart="16dp" />
 
     <TextView
         android:id="@+id/changeEducationTextView"
@@ -142,11 +143,9 @@
         android:text="@string/education"
         android:layout_marginLeft="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/changeEducationEditText"
-        android:layout_marginRight="16dp"
-        app:layout_constraintHorizontal_bias="0.0"
         android:layout_marginTop="33dp"
-        app:layout_constraintTop_toBottomOf="@+id/changeNameTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/changeNameTextView"
+        android:layout_marginStart="16dp" />
 
     <TextView
         android:id="@+id/changeUsernameTextView"
@@ -155,24 +154,20 @@
         android:text="@string/username"
         android:layout_marginLeft="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/changeUsernameEditText"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintTop_toBottomOf="@+id/changeEducationTextView"
-        app:layout_constraintHorizontal_bias="0.515" />
+        android:layout_marginStart="16dp" />
 
     <TextView
         android:id="@+id/changeStrong1TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/strong1"
-        app:layout_constraintRight_toLeftOf="@+id/changeStrong1EditText"
-        android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="33dp"
         app:layout_constraintTop_toBottomOf="@+id/changeUsernameTextView"
-        app:layout_constraintHorizontal_bias="1.0" />
+        android:layout_marginStart="16dp" />
 
     <TextView
         android:id="@+id/changeStrong2TextView"
@@ -181,35 +176,28 @@
         android:text="@string/strong1"
         android:layout_marginLeft="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/changeStrong2EditText"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintTop_toBottomOf="@+id/changeStrong1TextView"
-        app:layout_constraintHorizontal_bias="0.666" />
+        android:layout_marginStart="16dp" />
 
     <TextView
         android:id="@+id/changeWeak1TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/weak1"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintTop_toBottomOf="@+id/changeStrong2TextView"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/changeWeak1EditText"
-        android:layout_marginRight="16dp"
-        app:layout_constraintHorizontal_bias="0.9" />
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <TextView
         android:id="@+id/changeWeak2TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/weak1"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintTop_toBottomOf="@+id/changeWeak1TextView"
         android:layout_marginLeft="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/changeWeak2EditText"
-        android:layout_marginRight="8dp"
-        app:layout_constraintHorizontal_bias="0.0" />
+        android:layout_marginStart="16dp" />
 </android.support.constraint.ConstraintLayout>

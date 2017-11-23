@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
 
         userName = (TextView)findViewById(R.id.nameTextView);
 
-
         countMe = (TextView)findViewById(R.id.countMe);
 
         updateInfo = (TextView) findViewById(R.id.updateInfoView);
@@ -71,6 +70,13 @@ public class MainActivity extends AppCompatActivity {
 
         but = (Button) findViewById(R.id.updateButton3) ;
 
+
+
+        try {
+            Thread.sleep(300);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
